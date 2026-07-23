@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlashBasket | 10-Minute Grocery Delivery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="#top" aria-label="FlashBasket home">
+          <span class="brand-mark">⚡</span>
+          <span>FlashBasket</span>
+        </a>
+        <div class="nav-links">
+          <a href="#categories">Categories</a>
+          <a href="#deals">Deals</a>
+          <a href="#how-it-works">How it works</a>
+        </div>
+        <button class="cart-button" type="button" data-open-cart>
+          🛒 Cart <span id="cart-count">0</span>
+        </button>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">India-inspired grocery rush • Fresh in minutes</p>
+          <h1>Groceries that arrive before your craving cools down.</h1>
+          <p class="hero-text">
+            A high-energy, Blinkit-style grocery storefront with 10-minute delivery vibes,
+            bright deals, instant cart actions, and attention-grabbing order moments.
+          </p>
+          <form class="location-card" aria-label="Check delivery location">
+            <span>📍</span>
+            <input type="text" value="Sector 21, New Delhi" aria-label="Delivery address" />
+            <button type="button">Deliver now</button>
+          </form>
+          <div class="hero-actions">
+            <a class="primary-cta" href="#deals">Shop lightning deals</a>
+            <a class="secondary-cta" href="#categories">Explore aisles</a>
+          </div>
+          <div class="trust-row" aria-label="Delivery highlights">
+            <span>⏱ 10 min average</span>
+            <span>🥬 Farm-fresh picks</span>
+            <span>💳 UPI & cards</span>
+          </div>
+        </div>
+        <div class="hero-panel" aria-label="Featured flash order">
+          <div class="pulse-badge">LIVE ORDERS</div>
+          <div class="delivery-card">
+            <div class="delivery-rider">🛵</div>
+            <div>
+              <p>Order #FB2048</p>
+              <strong>Arriving in 07:42</strong>
+              <span>Milk, bananas, chips, ice cream</span>
+            </div>
+          </div>
+          <div class="hero-basket">
+            <span class="basket-item item-one">🥛</span>
+            <span class="basket-item item-two">🍌</span>
+            <span class="basket-item item-three">🥬</span>
+            <span class="basket-item item-four">🍦</span>
+            <div class="basket-core">Basket<br /><strong>filled fast</strong></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ticker" aria-label="Public attention offers">
+        <div>
+          <span>🔥 Mega saver hour is live</span>
+          <span>⚡ 10-minute essentials</span>
+          <span>🎁 Free treat on orders over ₹499</span>
+          <span>🥭 Fresh mangoes dropped today</span>
+        </div>
+      </section>
+
+      <section class="section" id="categories">
+        <div class="section-heading">
+          <p class="eyebrow">Shop by mood</p>
+          <h2>Every aisle, made exciting.</h2>
+        </div>
+        <div class="category-grid">
+          <article class="category-card yellow"><span>🥛</span><h3>Dairy & breakfast</h3><p>Fresh milk, eggs, bread and butter.</p></article>
+          <article class="category-card green"><span>🥦</span><h3>Fruits & veggies</h3><p>Daily-picked produce with crisp quality.</p></article>
+          <article class="category-card pink"><span>🍫</span><h3>Snacks & cravings</h3><p>Chips, chocolate, popcorn and party packs.</p></article>
+          <article class="category-card blue"><span>🧴</span><h3>Home essentials</h3><p>Cleaning, personal care and daily staples.</p></article>
+        </div>
+      </section>
+
+      <section class="section deals" id="deals">
+        <div class="section-heading split">
+          <div>
+            <p class="eyebrow">Add to cart now</p>
+            <h2>Lightning deals that create a queue.</h2>
+          </div>
+          <button class="ghost-button" type="button" data-open-cart>View cart</button>
+        </div>
+        <div class="product-grid" id="product-grid"></div>
+      </section>
+
+      <section class="section how" id="how-it-works">
+        <div class="section-heading">
+          <p class="eyebrow">Built for speed</p>
+          <h2>From tap to doorstep in three thrilling steps.</h2>
+        </div>
+        <div class="steps">
+          <article><span>1</span><h3>Pick your cravings</h3><p>Browse bold aisles, trending bundles and daily essentials.</p></article>
+          <article><span>2</span><h3>Watch the basket buzz</h3><p>See animated cart feedback that makes ordering feel alive.</p></article>
+          <article><span>3</span><h3>Meet your rider</h3><p>Track a fast grocery run with live delivery messaging.</p></article>
+        </div>
+      </section>
+    </main>
+
+    <aside class="cart-drawer" id="cart-drawer" aria-hidden="true" aria-label="Shopping cart">
+      <div class="cart-header">
+        <h2>Your flash cart</h2>
+        <button type="button" data-close-cart aria-label="Close cart">×</button>
+      </div>
+      <div id="cart-items" class="cart-items"></div>
+      <div class="cart-total">
+        <span>Total</span>
+        <strong id="cart-total">₹0</strong>
+      </div>
+      <button class="checkout-button" type="button" id="checkout-button">Place exciting order 🚀</button>
+    </aside>
+    <div class="overlay" id="overlay" data-close-cart></div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">Added to your flash cart!</div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
