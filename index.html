@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FlashBasket | 10-Minute Grocery Delivery</title>
+    <title>FlashBasket | Premium 10-Minute Grocery Delivery</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -21,9 +21,12 @@
           <a href="#deals">Deals</a>
           <a href="#how-it-works">How it works</a>
         </div>
-        <button class="cart-button" type="button" data-open-cart>
-          🛒 Cart <span id="cart-count">0</span>
-        </button>
+        <div class="nav-actions">
+          <a class="support-link" href="#support">Need help?</a>
+          <button class="cart-button" type="button" data-open-cart>
+            🛒 Cart <span id="cart-count">0</span>
+          </button>
+        </div>
       </nav>
     </header>
 
@@ -33,14 +36,18 @@
           <p class="eyebrow">India-inspired grocery rush • Fresh in minutes</p>
           <h1>Groceries that arrive before your craving cools down.</h1>
           <p class="hero-text">
-            A high-energy, Blinkit-style grocery storefront with 10-minute delivery vibes,
-            bright deals, instant cart actions, and attention-grabbing order moments.
+            A polished quick-commerce storefront with curated aisles, transparent delivery updates,
+            smart search, member-only savings, and delightful ordering moments.
           </p>
           <form class="location-card" aria-label="Check delivery location">
             <span>📍</span>
             <input type="text" value="Sector 21, New Delhi" aria-label="Delivery address" />
             <button type="button">Deliver now</button>
           </form>
+          <div class="search-card" role="search">
+            <span>🔎</span>
+            <input id="search-input" type="search" placeholder="Search milk, mangoes, chips, cleaning essentials..." aria-label="Search products" />
+          </div>
           <div class="hero-actions">
             <a class="primary-cta" href="#deals">Shop lightning deals</a>
             <a class="secondary-cta" href="#categories">Explore aisles</a>
@@ -49,6 +56,8 @@
             <span>⏱ 10 min average</span>
             <span>🥬 Farm-fresh picks</span>
             <span>💳 UPI & cards</span>
+            <span>⭐ 4.9 customer love</span>
+            <span>🗺 Live map enabled</span>
           </div>
         </div>
         <div class="hero-panel" aria-label="Featured flash order">
@@ -69,6 +78,13 @@
             <div class="basket-core">Basket<br /><strong>filled fast</strong></div>
           </div>
         </div>
+      </section>
+
+      <section class="stats-strip" aria-label="FlashBasket performance stats">
+        <article><strong>30k+</strong><span>orders today</span></article>
+        <article><strong>97%</strong><span>on-time delivery</span></article>
+        <article><strong>1,200+</strong><span>fresh SKUs</span></article>
+        <article><strong>24/7</strong><span>support desk</span></article>
       </section>
 
       <section class="ticker" aria-label="Public attention offers">
@@ -93,6 +109,33 @@
         </div>
       </section>
 
+      <section class="section map-section" id="delivery-map">
+        <div class="section-heading split">
+          <div>
+            <p class="eyebrow">Delivery intelligence</p>
+            <h2>See your service area before you order.</h2>
+          </div>
+          <a class="ghost-button" href="#deals">Continue shopping</a>
+        </div>
+        <div class="map-layout">
+          <div id="map" class="map-canvas" role="img" aria-label="Google map showing FlashBasket delivery area">
+            <div class="map-fallback">
+              <strong>Google Map will load here</strong>
+              <span>Add your Google Maps API key in <code>GOOGLE_MAPS_API_KEY</code> and run the backend server.</span>
+            </div>
+          </div>
+          <aside class="map-info">
+            <h3>Fast zone preview</h3>
+            <p>We center the map on New Delhi by default and highlight a 4 km quick-delivery zone. Use your Google key to activate live map tiles.</p>
+            <ul>
+              <li>Secure key comes from the backend config endpoint.</li>
+              <li>Checkout sends orders to the backend order API.</li>
+              <li>Use Google Cloud restrictions before production.</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
       <section class="section deals" id="deals">
         <div class="section-heading split">
           <div>
@@ -101,7 +144,14 @@
           </div>
           <button class="ghost-button" type="button" data-open-cart>View cart</button>
         </div>
+        <div class="filter-row" aria-label="Product filters">
+          <button class="filter-chip active" type="button" data-filter="all">All</button>
+          <button class="filter-chip" type="button" data-filter="fresh">Fresh</button>
+          <button class="filter-chip" type="button" data-filter="snacks">Snacks</button>
+          <button class="filter-chip" type="button" data-filter="home">Home</button>
+        </div>
         <div class="product-grid" id="product-grid"></div>
+        <p class="empty-state" id="empty-state" hidden>No matching groceries yet. Try another craving.</p>
       </section>
 
       <section class="section how" id="how-it-works">
@@ -113,6 +163,22 @@
           <article><span>1</span><h3>Pick your cravings</h3><p>Browse bold aisles, trending bundles and daily essentials.</p></article>
           <article><span>2</span><h3>Watch the basket buzz</h3><p>See animated cart feedback that makes ordering feel alive.</p></article>
           <article><span>3</span><h3>Meet your rider</h3><p>Track a fast grocery run with live delivery messaging.</p></article>
+        </div>
+      </section>
+
+      <section class="section promise" id="support">
+        <div class="promise-card">
+          <div>
+            <p class="eyebrow">Professional promise</p>
+            <h2>Premium convenience without the supermarket stress.</h2>
+            <p>Priority packing, hygienic handling, real-time rider support, simple refunds, and clean product details make every order feel trustworthy.</p>
+          </div>
+          <div class="promise-list">
+            <span>✅ Quality checked before dispatch</span>
+            <span>🧊 Cold-chain friendly delivery</span>
+            <span>💬 Instant chat support</span>
+            <span>🔁 Easy replacements</span>
+          </div>
         </div>
       </section>
     </main>
