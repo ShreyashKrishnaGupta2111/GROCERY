@@ -1,0 +1,13 @@
+{
+  "name": "flashbasket-grocery",
+  "version": "1.0.0",
+  "description": "FlashBasket grocery ordering website with a small Node backend and Google Maps integration.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js && node --check script.js"
+  },
+  "keywords": ["grocery", "quick-commerce", "google-maps"],
+  "author": "",
+  "license": "MIT"
+}
